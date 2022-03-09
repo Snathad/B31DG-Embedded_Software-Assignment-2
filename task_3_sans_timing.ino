@@ -10,7 +10,7 @@
  const int freq_in = 33;
  int freq_flag = 0;
  int frequency = 0;
- 
+ int freq_count = 0;
 
 void setup() {
 
@@ -24,7 +24,7 @@ void delay2(int nosecs){
   while (clock() < start_time + nosecs);  //adds the number of elapsed milliseconds on to the clock so timing can be calculated
 }
 
-void freq_measure (int frequency=0, const int freq_in=33, int freq_flag=0){
+void freq_measure (int frequency=0, const int freq_in=33, int freq_flag=0, int freq_count=0){
   if (freq_in==LOW){
     freq_flag=1;
   }
@@ -35,11 +35,17 @@ void freq_measure (int frequency=0, const int freq_in=33, int freq_flag=0){
   clock_t start_timeF= clock(); //define the start time of the clock
     while (clock() < start_timeF + 40);{  //adds the number of elapsed milliseconds on to the clock so timing can be calculated
       if (freq_flag==1 && freq_in==HIGH){ 
-        frequency=frequency+1;
+        freq_count=freq_count+1;
+      if (clock()>= start_timeF +39.5){
+        frequency =freq_count*25;  
+      }
         }
     }
 }
 void loop() {
-  freq_measure();
-Serial.print(frequency);
+  freq_measure();  
+Serial.print("Count");
+Serial.print(freq_count);
+Serial.print("frequency");
+Serial.print(frequency)+("Hz");
 }
