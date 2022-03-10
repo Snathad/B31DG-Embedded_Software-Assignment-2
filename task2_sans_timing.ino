@@ -8,10 +8,10 @@ void setup() {
 int switchread(){
   int ps1s = digitalRead(push_switch1);
   if (ps1s==HIGH){
-    Serial.print("Switch is pressed");
+    Serial.println("Switch is pressed");
   }
   else if (ps1s==LOW){
-    Serial.print("Switch is not pressed");
+    Serial.println("Switch is not pressed");
   }
 }
 void loop() {
