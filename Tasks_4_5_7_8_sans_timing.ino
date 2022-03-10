@@ -7,7 +7,7 @@
 //so this is tasks 4,5 and 7 and 8//
 
 //Establish analogue read as a variable//
-const int analogue_in = 34;
+const int analogue_in = 35;
 const int red_led = 15;
 float analogue_hist[4]={0,0,0,0};
 float analogue_average = 0;
@@ -28,7 +28,8 @@ void analogue_process(){
 
 void analogue_filter(){
   analogue_average= (analogue_hist[0]+analogue_hist[1]+analogue_hist[2]+analogue_hist[3])/4;
-  Serial.print("filtered analog value")+(analogue average);
+  Serial.println("filtered analog value");
+  Serial.print(analogue_average);
 }
 
 void analogue_error(){
