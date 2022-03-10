@@ -15,7 +15,8 @@ const int b=0.9;
 int c=14;
 const int d=2;
 const int TASK1=0.05;
-const int L = 0.05
+const int L = 0.05;
+int T;
 
 void setup() {
   //establish LED pin as an output
