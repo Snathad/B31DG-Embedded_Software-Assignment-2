@@ -6,8 +6,9 @@
 //and then scaling this up to a second. An alternate means was considered by which the//
 //length of a single pulse would be counted and scaled up based on its duration//
 
+#include <time.h>;
 //establish frequency input pin as a variable//
- const int freq_in = 33;
+ const int freq_in = 22;
  int freq_flag = 0; //the flag to indicate if the signal is low then went high
  int frequency = 0; //the value of the frequency in Hz
  int freq_count = 0; //The number of pulses over the time period
@@ -44,6 +45,9 @@ void freq_measure (){
 }
 void loop() {
   freq_measure();  //call frequency measuring function
-Serial.print("Count")+(freq_count);  //print the inital count
-Serial.print("frequency")+(frequency)+("Hz"); //print the processed frequency
+Serial.print("Count");
+Serial.println(freq_count);  //print the inital count
+Serial.print("frequency = ");
+Serial.print(frequency);
+Serial.println("Hz"); //print the processed frequency
 }
