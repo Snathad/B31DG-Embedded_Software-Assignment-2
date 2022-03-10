@@ -16,7 +16,7 @@ int error_code = 0;
 void setup() {
   pinMode(red_led, OUTPUT);
   pinMode(analogue_in, INPUT);
-
+  Serial.begin(9600);
 }
 
 void analogue_process(){
@@ -28,6 +28,7 @@ void analogue_process(){
 
 void analogue_filter(){
   analogue_average= (analogue_hist[0]+analogue_hist[1]+analogue_hist[2]+analogue_hist[3])/4;
+  Serial.print("filtered analog value")+(analogue average);
 }
 
 void analogue_error(){
